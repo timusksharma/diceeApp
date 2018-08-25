@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        updateDicee()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,13 +29,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func roll(_ sender: UIButton) {
-        
+        updateDicee()
+
+    }
+    func udateDicee(){
         Dicee1 = Int(arc4random_uniform(6))
         Dicee2 = Int(arc4random_uniform(6))
         
         dicee1.image = UIImage(named: diceArray[Dicee1])
         dicee2.image = UIImage(named: diceArray[Dicee2])
     }
+     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+         
+        updateDicee()
+            }
+
     
 }
 
